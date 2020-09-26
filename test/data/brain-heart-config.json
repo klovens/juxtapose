@@ -1,0 +1,13 @@
+{
+  "n_replicates": 1,
+  "percentage": 0.4,
+  "n_anchors": 20,
+  "anchor_test_ratio": 0.5,
+  "min_dangle_size": 7,
+  "max_dangle_size": 10,
+  "anchor_file_address": "data/heart_brain_shared.csv",
+  "phenotypes": ["brain_1", "brain_2", "brain_3", "heart_1", "heart_2", "heart_3"],
+  "experiment_name": "Heart_Brain",
+  "test_ratio": 0.5,
+  "data_directory": "data"
+}

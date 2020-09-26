@@ -1,0 +1,13 @@
+{
+  "n_replicates": 1,
+  "percentage": 0.3,
+  "n_anchors": 20,
+  "anchor_test_ratio": 0.2,
+  "min_dangle_size": 10,
+  "max_dangle_size": 15,
+  "anchor_file_address": "data/common_cortex_genes.csv",
+  "phenotypes": ["human", "chimpanzee", "macaque", "mouse"],
+  "experiment_name": "Cortex",
+  "test_ratio": 0.2,
+  "data_directory": "pcortex_data"
+}
