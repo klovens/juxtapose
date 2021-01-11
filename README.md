@@ -94,7 +94,10 @@ The example contents of Line-train-config.json:
   "min_alpha": 0.001
   }
   ```
-These operations can be done individually, or run_all.sh can be used to run through all of the steps if the JSON files are provided as follows.
+These operations can be done individually, or run_all.sh can be used to run through all of the steps if the JSON files are provided as follows. It should also be noted if the models for the networks have already been trained and only the similarity measures and biclustering need to be run, then the following option can be specified when running.
+```sh
+python3 runner.py --no-train
+```
 
 Let us take an example of embedding a simple line network.
 
