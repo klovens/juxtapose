@@ -59,6 +59,35 @@ New tests should be added as modules where their names start with test_ under te
 
 In order to run Juxtapose, two JSON files are required containing the desired parameters for (1) creating an anchored network using a set of genes and making walks through this network and (2) running an embedding method to obtain pairwise local distances between genes as well as a global similarity between networks, results and visualizations from biclustering local pairwise distances. 
 
+Let us take an example of embedding a simple line network.
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+We require a csv file that that contains the edge list representation of the network. In our case, we have named it line_1.csv.
+
+Content of line_1.csv:
+```sh
+0,1,1
+1,0,1
+1,2,1
+2,1,1
+2,3,1
+3,2,1
+3,4,1
+4,3,1
+4,5,1
+5,4,1
+5,6,1
+6,5,1
+6,7,1
+7,6,1
+7,8,1
+8,7,1
+8,9,1
+9,8,1
+9,10,1
+10,9,1
+  ```
+We have the config/JSON files stored in the config folder.
 The example contents of line-config.json:
 ```sh
 {
@@ -99,11 +128,13 @@ These operations can be done individually, or run_all.sh can be used to run thro
 python3 runner.py --no-train
 ```
 
-Let us take an example of embedding a simple line network.
+
 
 To run the anchoring step, we also require the genes/nodes of the network that will be used as the anchor points in the networks that are going to be compared. As the networks will be compared, these synthetics structures that are attached to the real networks should be the same.
 
 Finally, running X will calculate the local similarity measures between genes and bicluster these results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. Also, the global similarity is reported and saved in X.
+
+We have provided other datasets that can be used of various sizes and complexity/density for further testing. All can be found in the test data folder.
 
 Larger networks will not be possible to compare on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to select 
 EC2 Dashboard
