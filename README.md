@@ -39,3 +39,9 @@ You may also suggest changes by forking this repo and creating a pull request or
 The following steps will guide you through the process of running Juxtapose on your local machine or an AWS spot instance.
 
 ### Prerequisites
+
+The main dependencies of Juxtapose are gensim, multiprocessing, numpy, pandas, and scipy. See requirements.txt for the complete list of requirements.
+
+### Installation
+
+Juxtapose can be installed using the following commands.
