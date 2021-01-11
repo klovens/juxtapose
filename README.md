@@ -90,3 +90,16 @@ pip3 install torch torchvision
  mkdir experiment
  chmod -R 777 experiment
  ```
+ After the volume is attached to the spot instance, the code can be downloaded and Juxtapose can be set up as was done above.
+
+<!-- Versioning -->
+## Versioning
+
+We use [Semantic Versioning 2.0.0](http://semver.org/) for versioning.
+
+
+<!-- CONTACT -->
+## Contact
+
+**Katie Ovens** - katie.ovens@usask.ca
+Project Link: [https://github.com/klovens/juxtapose](https://github.com/klovens/juxtapose)
