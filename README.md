@@ -61,7 +61,7 @@ New tests should be added as modules where their names start with test_ under te
 
 In order to run Juxtapose, two JSON files are required containing the desired parameters for (1) creating an anchored network using a set of genes and making walks through this network and (2) running an embedding method to obtain pairwise local distances between genes as well as a global similarity between networks, results and visualizations from biclustering local pairwise distances. 
 
-The example contents of Line-train-config.json:
+The example contents of line-config.json:
 ```sh
 {
   "n_replicates": 10,
