@@ -37,7 +37,7 @@ The following steps will guide you through the process of running Juxtapose on y
 
 ### Prerequisites
 
-The main dependencies of Juxtapose are gensim, multiprocessing, numpy, pandas, and scipy. See requirements.txt for the complete list of requirements.
+The main dependencies of Juxtapose are gensim, scikit-learn, numpy, pandas, and scipy. See requirements.txt for the complete list of requirements.
 
 ### Installation
 
@@ -57,7 +57,7 @@ New tests should be added as modules where their names start with test_ under te
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-In order to run Juxtapose, two JSON files are required containing the desired parameters for (1) creating an anchored network using a set of genes and making walks through this network and (2) running an embedding method to obtain pairwise local distances between genes as well as a global similarity between networks, results and visualizations from biclustering local pairwise distances. 
+In order to run Juxtapose, two JSON files are required containing the desired parameters for (1) creating an anchored network using a set of genes and making walks through this network and (2) running an embedding method to obtain pairwise local distances between genes as well as a global similarity between networks, and results including visualizations from biclustering local pairwise distances. 
 
 Let us take an example of embedding a simple line network.
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
