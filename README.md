@@ -61,6 +61,41 @@ New tests should be added as modules where their names start with test_ under te
 
 In order to run Juxtapose, two JSON files are required containing the desired parameters for (1) creating an anchored network using a set of genes and making walks through this network and (2) running an embedding method to obtain pairwise local distances between genes as well as a global similarity between networks, results and visualizations from biclustering local pairwise distances. 
 
+The example contents of Line-train-config.json:
+```sh
+{
+  "n_replicates": 10,
+  "percentage": 0.4,
+  "n_anchors": 6,
+  "anchor_test_ratio": 0.5,
+  "min_dangle_size": 3,
+  "max_dangle_size": 10,
+  "anchor_file_address": "test/data/line_anchors.csv",
+  "phenotypes": ["1", "2"],
+  "experiment_name": "Line",
+  "test_ratio": 0.5,
+  "data_directory": "test/data"
+}
+```
+
+The example contents of Line-train-config.json:
+```sh
+  {
+  "experiment_name": "Line",
+  "phenotypes": ["1", "2"],
+  "walk_per_node": 1000,
+  "walk_length": 50,
+  "n_iter": 1,
+  "n_workers": 20,
+  "embd_dim": 10,
+  "window": 2,
+  "min_count": 2,
+  "negatives": 5,
+  "alpha": 0.01,
+  "n_replicates": 1,
+  "min_alpha": 0.001
+  }
+  ```
 These operations can be done individually, or run_all.sh can be used to run through all of the steps if the JSON files are provided as follows.
 
 Let us take an example of embedding a simple line network.
