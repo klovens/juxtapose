@@ -45,3 +45,25 @@ The main dependencies of Juxtapose are gensim, multiprocessing, numpy, pandas, a
 ### Installation
 
 Juxtapose can be installed using the following commands.
+
+ ```sh
+  conda create -n juxtapose python=3.6
+  ```
+
+To install requirements, the following command can be run.
+
+```sh
+  make setup
+  ```
+  ### Adding more tests
+
+New tests should be added as modules where their names start with test_ under test directory.
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+In order to run Juxtapose, two JSON files are required containing the desired parameters for (1) creating an anchored network using a set of genes and making walks through this network and (2) running an embedding method to obtain pairwise local distances between genes as well as a global similarity between networks, results and visualizations from biclustering local pairwise distances. 
+
+These operations can be done individually, or run_all.sh can be used to run through all of the steps if the JSON files are provided as follows.
+
+Let us take an example of embedding a simple line network.
