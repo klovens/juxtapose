@@ -1,4 +1,4 @@
-#Juxtapose
+# Juxtapose
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -21,7 +21,6 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#versioning">Versioning</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -29,3 +28,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+Welcome to Juxtapose, a Python tool that can be used to compare gene co-expression networks (GCNs). Juxtapose, together with different similarity measures, can be utilized for comparative transcriptomics between a set of organisms. While we focus on its application to comparing co-expression networks across species in evolutionary studies, Juxtapose is also generalizable to co-expression network comparisons across tissues or conditions within the same species. A word embedding strategy commonly used in natural language processing was utilized in order to generate gene embeddings based on walks made throughout the GCNs. 
+
+You may also suggest changes by forking this repo and creating a pull request or opening an issue. 
