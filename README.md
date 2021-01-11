@@ -41,14 +41,12 @@ The main dependencies of Juxtapose are gensim, multiprocessing, numpy, pandas, a
 
 ### Installation
 
-Juxtapose can be installed using the following commands.
-
+It is a good practice to use a virtual environment for deploying Python programs. Using conda, we can create an environment named juxtapose. The environment name is arbitrary.
  ```sh
   conda create -n juxtapose python=3.6
   ```
 
-To install requirements, the following command can be run.
-
+After downloading the Juxtapose repository, the following command can be run to install requirements.
 ```sh
   make setup
   ```
