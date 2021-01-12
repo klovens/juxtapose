@@ -110,7 +110,7 @@ The example contents of line-config.json:
 }
 ```
 
-The example contents of Line-train-config.json:
+The example contents of Line-train-config.json used for model training and visualizations:
 ```sh
   {
   "experiment_name": "Line",
@@ -135,7 +135,7 @@ To add anchor nodes, run the following command.
 python3 dangle.py --config test/data/line-config.json
 ``` 
 
-Finally, running runner.py will train the models for each network, calculate the local and global similarity measures between genes and bicluster the local similarity results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. 
+Finally, runner.py will train the models for each network, calculate the local and global similarity measures between genes and bicluster the local similarity results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. 
 ```sh
 python3 runner.py --config test/data/Line-train-config.json
 ```
@@ -175,6 +175,8 @@ There are also options to translate node IDs to integers if they are not in the 
  ```
  This will produce files named the same as the original 
  Also, a JSON file will be produced to save the translation between integers and the original IDs.
+ 
+ Other means of visualization are available that have not been covered here are 
  
  <!-- Versioning -->
 ## Versioning
