@@ -147,6 +147,13 @@ We have provided other datasets (circle, cross, heart, and brain) that can be us
 
 It will not always be possible to compare larger networks on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources if no other resources are available to you. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to go to the EC2 Dashboard () and make a spot request.
 
+<p align="center">
+<img src="JuxtaposeTutorial/selectinstance.png" width="900">
+</p>
+<p align="center">
+<img src="JuxtaposeTutorial/spotrequests.png" width="900">
+</p>
+
 Once the instance is created, use ssh to go to the instance. A generic example is provided below.
 ```sh
 ssh -i "keypair.pem" ubuntu@ec2-52-23-241-60.compute-1.amazonaws.com
