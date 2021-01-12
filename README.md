@@ -14,7 +14,13 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#usage">Usage</a>
+    <ul>
+        <li><a href="#Small network embedding">Small network embedding</a></li>
+        <li><a href="#Large network embedding">Large network embedding</a></li>
+        <li><a href="#Translating IDs to integers">Translating IDs to integers</a></li>      
+     </ul>    
+    </li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#versioning">Versioning</a></li>
     <li><a href="#contact">Contact</a></li>
