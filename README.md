@@ -62,6 +62,7 @@ New tests should be added as modules where their names start with test_ under te
 
 In order to run Juxtapose, two JSON files are required containing the desired parameters for (1) creating an anchored network using a set of genes and making walks through this network and (2) running an embedding method to obtain pairwise local distances between genes as well as a global similarity between networks, and results including visualizations from biclustering local pairwise distances. 
 
+### Small network embedding
 Let us take an example of embedding a simple line network.
 
 <p align="center">
@@ -145,13 +146,30 @@ python3 runner.py --config test/data/Line-train-config.json --no-train
 ```
 We have provided other datasets (circle, cross, heart, and brain) that can be used of various sizes and complexity/density for further testing. All can be found in the test data folder.
 
+### Large networks
 It will not always be possible to compare larger networks on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources if no other resources are available to you. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to go to the EC2 Dashboard () and make a spot request.
+
+Make a spot request.
+<p align="center">
+<img src="JuxtaposeTutorial/spotrequests.png" width="900">
+</p>
+Selecting an AMI.
+
+Selecting an instance type.
+<p align="center">
+<img src="JuxtaposeTutorial/selectinstance.png" width="900">
+</p>
+
+This request will also require a [key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair) and [enabling inbound SSH traffic from your IP address to your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html). If these have not been set up already, there is the option to create a new key pair and security group below where they are requested in the spot instance template. The remaining parts of the spot request are optional and can be changed according to your needs.
 
 <p align="center">
 <img src="JuxtaposeTutorial/selectinstance.png" width="900">
 </p>
+
+The command to ssh to the instance can be obtained using the Amazon EC2 console. Go to Instances and click the Connect button, which will provide the required command.
+
 <p align="center">
-<img src="JuxtaposeTutorial/spotrequests.png" width="900">
+<img src="JuxtaposeTutorial/selectinstance.png" width="900">
 </p>
 
 Once the instance is created, use ssh to go to the instance. A generic example is provided below.
@@ -175,7 +193,8 @@ The volume created to store the data as well as Juxtapose can be attached as fol
  chmod -R 777 experiment
  ```
  After the volume is attached to the spot instance, the code can be downloaded and Juxtapose can be run as was done above with the line network example.
- 
+
+### Translating IDs to integers
 There are also options to translate node IDs to integers if they are not in the original networks. Converting the names to integers can save a lot of memory and result in a quicker analysis. The following commands can be used in order to convert names to integers.
 ```sh
  
