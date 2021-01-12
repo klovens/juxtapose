@@ -128,10 +128,12 @@ These operations can be done individually, or run_all.sh can be used to run thro
 python3 runner.py --no-train
 ```
 
+To run the anchoring step, we also require the genes/nodes of the network that will be used as the anchor points in the networks that are going to be compared. As the networks will be compared, these synthetic structures that are attached to the real networks should be the same. We have provided line_anchors.csv for this example, but this list can be catered or limited to any sets of nodes a user would like to select as potential anchors.
 
-
-To run the anchoring step, we also require the genes/nodes of the network that will be used as the anchor points in the networks that are going to be compared. As the networks will be compared, these synthetics structures that are attached to the real networks should be the same.
-
+To add anchor nodes, run the following command.
+```sh
+python3 runner.py --no-train
+``` 
 Finally, running X will calculate the local similarity measures between genes and bicluster these results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. Also, the global similarity is reported and saved in X.
 
 We have provided other datasets that can be used of various sizes and complexity/density for further testing. All can be found in the test data folder.
