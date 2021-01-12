@@ -61,7 +61,9 @@ In order to run Juxtapose, two JSON files are required containing the desired pa
 
 Let us take an example of embedding a simple line network.
 
+<p align="center">
 <img src="JuxtaposeTutorial/line.png" width="300">
+</p>
 
 We require a csv file that that contains the edge list representation of the network. In our case, we have named it line_1.csv.
 
