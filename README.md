@@ -162,9 +162,13 @@ The volume created to store the data as well as Juxtapose can be attached as fol
  mkdir experiment
  chmod -R 777 experiment
  ```
- After the volume is attached to the spot instance, the code can be downloaded and Juxtapose can be set up as was done above.
-
-<!-- Versioning -->
+ After the volume is attached to the spot instance, the code can be downloaded and Juxtapose can be run as was done above with the line network example.
+ 
+ There are also options to translate node IDs to integers if they are not in the original networks. Converting the names to integers can save a lot of memory and result in a quicker analysis. The following commands can be used in order to convert names to integers.
+```sh
+ 
+ ```
+ <!-- Versioning -->
 ## Versioning
 
 We use [Semantic Versioning 2.0.0](http://semver.org/) for versioning.
