@@ -60,7 +60,7 @@ New tests should be added as modules where their names start with test_ under te
 In order to run Juxtapose, two JSON files are required containing the desired parameters for (1) creating an anchored network using a set of genes and making walks through this network and (2) running an embedding method to obtain pairwise local distances between genes as well as a global similarity between networks, and results including visualizations from biclustering local pairwise distances. 
 
 Let us take an example of embedding a simple line network.
-![Alt text](edit/master/JuxtaposeTutorial/line.png?raw=true "Title")
+![Line](JuxtaposeTutorial/line.png?raw=true "Title")
 
 We require a csv file that that contains the edge list representation of the network. In our case, we have named it line_1.csv.
 
