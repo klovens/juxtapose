@@ -68,7 +68,7 @@ Let us take an example of embedding a simple line network.
 <img src="JuxtaposeTutorial/line.png" width="300">
 </p>
 
-We require a csv file that that contains the edge list representation of the network. In our case, we have named it line_1.csv.
+We require a csv file that that contains the edge list representation of the network. In our case, we have line_1.csv and line_2.csv.
 
 Content of line_1.csv:
 ```sh
@@ -93,7 +93,7 @@ Content of line_1.csv:
 9,10,1
 10,9,1
   ```
-We have the config/JSON files stored in the config folder.
+We have the config/JSON files stored in the test/data folder.
 The example contents of line-config.json:
 ```sh
 {
@@ -128,7 +128,7 @@ The example contents of Line-train-config.json:
   "min_alpha": 0.001
   }
   ```
-To run the anchoring step, we also require the genes/nodes of the network that will be used as the anchor points in the networks that are going to be compared. As the networks will be compared, these synthetic structures that are attached to the real networks should be the same. We have provided line_anchors.csv for this example, but this list can be catered or limited to any sets of nodes a user would like to select as potential anchors.
+To run the anchoring step, we also require the genes/nodes of the network that will be used as the anchor points in the networks that are going to be compared. As the networks will be compared, these synthetic structures that are attached to the real networks should be the same. We have provided line_anchors.csv for this example, but this list can be catered or limited to any sets of nodes a user would like to select as potential anchors. The name of the file used needs to be set in the config file using the "anchor_file_address" parameter.
 
 To add anchor nodes, run the following command.
 ```sh
@@ -141,7 +141,7 @@ python3 runner.py --config test/data/Line-train-config.json --no-train
 ```
 We have provided other datasets (circle, cross, heart, and brain) that can be used of various sizes and complexity/density for further testing. All can be found in the test data folder.
 
-Larger networks will not always be possible to compare on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources if nothing is available to you. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to select 
+It will not always be possible to compare larger networks on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources if nothing is available to you. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to select 
 EC2 Dashboard
 Spot request
 
