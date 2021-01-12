@@ -135,18 +135,22 @@ To add anchor nodes, run the following command.
 python3 dangle.py --config test/data/line-config.json
 ``` 
 
-Finally, running runner.py will train the models for each network, calculate the local and global similarity measures between genes and bicluster the local similarity results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. It should also be noted if the models for the networks have already been trained and only the similarity measures and biclustering need to be run, then the following option can be specified when running.
+Finally, running runner.py will train the models for each network, calculate the local and global similarity measures between genes and bicluster the local similarity results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. 
+```sh
+python3 runner.py --config test/data/Line-train-config.json
+```
+It should also be noted if the models for the networks have already been trained and only the similarity measures and biclustering need to be run, then the option "no-train" can be specified as below when running.
 ```sh
 python3 runner.py --config test/data/Line-train-config.json --no-train
 ```
 We have provided other datasets (circle, cross, heart, and brain) that can be used of various sizes and complexity/density for further testing. All can be found in the test data folder.
 
-It will not always be possible to compare larger networks on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources if nothing is available to you. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to select 
-EC2 Dashboard
-Spot request
+It will not always be possible to compare larger networks on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources if no other resources are available to you. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to go to the EC2 Dashboard () and make a spot request.
 
-Once the instance is created, use ssh to go to the instance. 
-
+Once the instance is created, use ssh to go to the instance. A generic example is provided below.
+```sh
+ssh -i "keypair.pem" ubuntu@ec2-52-23-241-60.compute-1.amazonaws.com
+```
 Then the following will need to be run to set up python on the intance.
 ```sh
 sudo apt update
@@ -157,6 +161,7 @@ pip3 install seaborn
 pip3 install -U scikit-learn
 pip3 install torch torchvision
  ```
+A volume is also required in order to store data and results. 
 The volume created to store the data as well as Juxtapose can be attached as follows.
 ```sh
  mkdir experiment
@@ -164,10 +169,13 @@ The volume created to store the data as well as Juxtapose can be attached as fol
  ```
  After the volume is attached to the spot instance, the code can be downloaded and Juxtapose can be run as was done above with the line network example.
  
- There are also options to translate node IDs to integers if they are not in the original networks. Converting the names to integers can save a lot of memory and result in a quicker analysis. The following commands can be used in order to convert names to integers.
+There are also options to translate node IDs to integers if they are not in the original networks. Converting the names to integers can save a lot of memory and result in a quicker analysis. The following commands can be used in order to convert names to integers.
 ```sh
  
  ```
+ This will produce files named the same as the original 
+ Also, a JSON file will be produced to save the translation between integers and the original IDs.
+ 
  <!-- Versioning -->
 ## Versioning
 
