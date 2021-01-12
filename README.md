@@ -106,7 +106,6 @@ The example contents of line-config.json:
   "anchor_file_address": "test/data/line_anchors.csv",
   "phenotypes": ["1", "2"],
   "experiment_name": "Line",
-  "test_ratio": 0.5,
   "data_directory": "test/data"
 }
 ```
@@ -129,25 +128,26 @@ The example contents of Line-train-config.json:
   "min_alpha": 0.001
   }
   ```
-These operations can be done individually, or run_all.sh can be used to run through all of the steps if the JSON files are provided as follows. It should also be noted if the models for the networks have already been trained and only the similarity measures and biclustering need to be run, then the following option can be specified when running.
-```sh
-python3 runner.py --no-train
-```
-
 To run the anchoring step, we also require the genes/nodes of the network that will be used as the anchor points in the networks that are going to be compared. As the networks will be compared, these synthetic structures that are attached to the real networks should be the same. We have provided line_anchors.csv for this example, but this list can be catered or limited to any sets of nodes a user would like to select as potential anchors.
 
 To add anchor nodes, run the following command.
 ```sh
-python3 runner.py --no-train
+python3 dangle.py --config test/data/line-config.json
 ``` 
-Finally, running X will calculate the local similarity measures between genes and bicluster these results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. Also, the global similarity is reported and saved in X.
 
-We have provided other datasets that can be used of various sizes and complexity/density for further testing. All can be found in the test data folder.
+Finally, running runner.py will train the models for each network, calculate the local and global similarity measures between genes and bicluster the local similarity results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. It should also be noted if the models for the networks have already been trained and only the similarity measures and biclustering need to be run, then the following option can be specified when running.
+```sh
+python3 runner.py --config test/data/Line-train-config.json --no-train
+```
+We have provided other datasets (circle, cross, heart, and brain) that can be used of various sizes and complexity/density for further testing. All can be found in the test data folder.
 
-Larger networks will not be possible to compare on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to select 
+Larger networks will not always be possible to compare on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources if nothing is available to you. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to select 
 EC2 Dashboard
 Spot request
 
+Once the instance is created, use ssh to go to the instance. 
+
+Then the following will need to be run to set up python on the intance.
 ```sh
 sudo apt update
 sudo apt install python3-pip
@@ -157,7 +157,7 @@ pip3 install seaborn
 pip3 install -U scikit-learn
 pip3 install torch torchvision
  ```
-
+The volume created to store the data as well as Juxtapose can be attached as follows.
 ```sh
  mkdir experiment
  chmod -R 777 experiment
