@@ -77,7 +77,7 @@ Let us take an example of embedding a simple line network.
 
 We require a csv file that that contains the edge list representation of the network. In our case, we have line_1.csv and line_2.csv.
 
-Content of line_1.csv:
+Content of line_1.csv and line_2.csv:
 ```sh
 0,1,1
 1,0,1
@@ -101,7 +101,7 @@ Content of line_1.csv:
 10,9,1
   ```
 We have the config/JSON files stored in the test/data folder.
-The example contents of line-config.json:
+The example contents of line-config.json used for adding anchors to the networks:
 ```sh
 {
   "n_replicates": 10,
@@ -142,7 +142,7 @@ To add anchor nodes, run the following command.
 python3 dangle.py --config test/data/line-config.json
 ``` 
 
-Finally, runner.py will train the models for each network, calculate the local and global similarity measures between genes and bicluster the local similarity results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. 
+Next, runner.py will train the models for each network, calculate the local and global similarity measures between genes and bicluster the local similarity results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. 
 ```sh
 python3 runner.py --config test/data/Line-train-config.json
 ```
@@ -153,7 +153,7 @@ python3 runner.py --config test/data/Line-train-config.json --no-train
 We have provided other datasets (circle, cross, heart, and brain) that can be used of various sizes and complexity/density for further testing. All can be found in the test data folder.
 
 ### Large networks
-It will not always be possible to compare larger networks on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources if no other resources are available to you. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to go to the EC2 Dashboard () and make a spot request.
+It will not always be possible to compare larger networks on many machines due to the large memory requirements as the number of edges in the networks increases. As such, we recommend an AWS spot instance for more affordable resources if no other resources are available to you. In order to set up an instance that will work for a larger network, e.g. 10,000+ genes, one option would be to go to the [EC2 Dashboard](https://aws.amazon.com/ec2/getting-started/) and make a spot request.
 
 Make a spot request.
 <p align="center">
@@ -172,16 +172,16 @@ This request will also require a [key pair](https://docs.aws.amazon.com/AWSEC2/l
 <img src="JuxtaposeTutorial/selectinstance.png" width="900">
 </p>
 
-The command to ssh to the instance can be obtained using the Amazon EC2 console. Go to Instances and click the Connect button, which will provide the required command.
-
-<p align="center">
-<img src="JuxtaposeTutorial/selectinstance.png" width="900">
-</p>
-
 Once the instance is created, use ssh to go to the instance. A generic example is provided below.
 ```sh
 ssh -i "keypair.pem" ubuntu@ec2-52-23-241-60.compute-1.amazonaws.com
 ```
+The actual command to ssh to the instance can be obtained using the Amazon EC2 console. Go to Instances and click the Connect button, which will provide the required command.
+
+<p align="center">
+<img src="JuxtaposeTutorial/connectinstance.png" width="900">
+</p>
+
 Then the following will need to be run to set up python on the intance.
 ```sh
 sudo apt update
@@ -192,13 +192,17 @@ pip3 install seaborn
 pip3 install -U scikit-learn
 pip3 install torch torchvision
  ```
-A volume is also required in order to store data and results. 
+A volume is also required in order to store data and results. A volume can be made using the 
 The volume created to store the data as well as Juxtapose can be attached as follows.
 ```sh
- mkdir experiment
- chmod -R 777 experiment
- ```
- After the volume is attached to the spot instance, the code can be downloaded and Juxtapose can be run as was done above with the line network example.
+lsblk
+mkdir experiment
+chmod -R 744 experiment/
+sudo mount /dev/xvdf experiment/
+cd experiment/ 
+```
+
+After the volume is attached to the spot instance, the code can be downloaded into the folder that has had the volume mounted to it and Juxtapose can be run as was done above with the line network example.
 
 ### Translating IDs to integers
 There are also options to translate node IDs to integers if they are not in the original networks. Converting the names to integers can save a lot of memory and result in a quicker analysis. The following commands can be used in order to convert names to integers.
