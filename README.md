@@ -169,7 +169,8 @@ Selecting an instance type.
 This request will also require a [key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair) and [enabling inbound SSH traffic from your IP address to your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html). If these have not been set up already, there is the option to create a new key pair and security group below where they are requested in the spot instance template. The remaining parts of the spot request are optional and can be changed according to your needs.
 
 <p align="center">
-<img src="JuxtaposeTutorial/selectinstance.png" width="900">
+<img src="JuxtaposeTutorial/keypairname.png" width="900">
+<img src="JuxtaposeTutorial/securitygroup.png" width="900">
 </p>
 
 Once the instance is created, use ssh to go to the instance. A generic example is provided below.
@@ -192,16 +193,20 @@ pip3 install seaborn
 pip3 install -U scikit-learn
 pip3 install torch torchvision
  ```
-A volume is also required in order to store data and results. A volume can be made using the 
+A [volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html) is also required in order to store data and results. The volume will need to be attached to the instance as follows.
+<p align="center">
+<img src="JuxtaposeTutorial/attachvolume.png" width="900">
+<img src="JuxtaposeTutorial/attachvolume2.png" width="900">
+</p>
+
 The volume created to store the data as well as Juxtapose can be attached as follows.
 ```sh
-lsblk
-mkdir experiment
-chmod -R 744 experiment/
-sudo mount /dev/xvdf experiment/
-cd experiment/ 
+lsblk # the volume we made is called xvdf
+mkdir experiment  # make a directory
+chmod -R 744 experiment/  # change its permissions
+sudo mount /dev/xvdf experiment/ # mount the volume to the new directory
+cd experiment/ # go to the directory and start working
 ```
-
 After the volume is attached to the spot instance, the code can be downloaded into the folder that has had the volume mounted to it and Juxtapose can be run as was done above with the line network example.
 
 ### Translating IDs to integers
