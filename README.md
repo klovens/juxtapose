@@ -210,14 +210,15 @@ cd experiment/ # go to the directory and start working
 After the volume is attached to the spot instance, the code can be downloaded into the folder that has had the volume mounted to it and Juxtapose can be run as was done above with the line network example.
 
 ### Translating IDs to integers
-There are also options to translate node IDs to integers if they are not in the original networks. Converting the names to integers can save a lot of memory and result in a quicker analysis. The following commands can be used in order to convert names to integers.
+There are also options to translate node IDs to integers if they are not in the original networks. Converting the names to integers can save a lot of memory and result in a quicker analysis. The following commands can be used in order to convert names to integers after the anchoring procedure has been completed and all nodes that will be a part of the networks are now included in the anchored network files, i.e. experiment_anchored_*.csv.
+
 ```sh
- 
+ python3 translator.py --config line-config.json 
  ```
- This will produce files named the same as the original 
- Also, a JSON file will be produced to save the translation between integers and the original IDs.
  
- Other means of visualization are available that have not been covered here are 
+ This will produce files named the same as the original anchored networks (translated_anchored_*_*.csv). Also, a JSON file, IDConvertor.json, will be produced to save the translation between integers and the original IDs. This allows for easy translation bake to the original names or IDs for downstream analyses.
+ 
+ Other means of visualization are available that have not been covered here are included in dimensionality_reduction.py including t-SNE and PCA visualizations of the embedded datasets. Tutorial on how to visualize specific genes as well as the genes closest or furthest from them in the embedding space will be added in the future.
  
  <!-- Versioning -->
 ## Versioning
