@@ -216,7 +216,7 @@ There are also options to translate node IDs to integers if they are not in the 
  python3 translator.py --config line-config.json 
  ```
  
- This will produce files named the same as the original anchored networks (translated_anchored_*_*.csv). Also, a JSON file, IDConvertor.json, will be produced to save the translation between integers and the original IDs. This allows for easy translation bake to the original names or IDs for downstream analyses.
+ This will produce files named the same as the original anchored networks (translated_anchored_*.csv). Also, a JSON file, IDConvertor.json, will be produced to save the translation between integers and the original IDs. This allows for easy translation bake to the original names or IDs for downstream analyses.
  
  Other means of visualization are available that have not been covered here are included in dimensionality_reduction.py including t-SNE and PCA visualizations of the embedded datasets. Tutorial on how to visualize specific genes as well as the genes closest or furthest from them in the embedding space will be added in the future.
  
