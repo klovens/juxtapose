@@ -159,7 +159,8 @@ Make a spot request.
 <p align="center">
 <img src="JuxtaposeTutorial/spotrequests.png" width="900">
 </p>
-Selecting an AMI.
+
+Selecting an AMI. We recommend using Ubuntu Server 18.04 LTS (HVM), SSD Volume Type.
 
 Selecting an instance type.
 <p align="center">
