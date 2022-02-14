@@ -142,6 +142,11 @@ To add anchor nodes, run the following command.
 python3 dangle.py --config test/data/line-config.json
 ``` 
 
+To generate the intermediate walk files, if necessary, run the following command.
+```sh
+python3 dataset_generator.py --config test/data/Line-train-config.json
+``` 
+
 Next, runner.py will train the models for each network, calculate the local and global similarity measures between genes and bicluster the local similarity results. If a full co-expression network is used and it is not possible to generate the complete matrix, there is also an option to select only a percentage of each bicluster in order to make a representative visualization. 
 ```sh
 python3 runner.py --config test/data/Line-train-config.json
